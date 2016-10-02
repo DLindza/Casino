@@ -56,12 +56,13 @@ public class Casino {
         menu.gameMenu();
         int userSelection = userInput.inputInt();
 
+
         switch(userSelection) {
-            case 1: //rouletteMainMenu();
+            case 1: engine.playGame(new Roulette());
                 break;
-            case 2: //goFishMainMenu();
+            case 2: engine.playGame(new GoFish());
                 break;
-            case 3: //blackJackMainMenu();
+            case 3: engine.playGame(new BlackJack());
                 break;
             case 4: menu.output("Goodbye! Hope you had fun!");
                 break;

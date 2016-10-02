@@ -22,4 +22,7 @@ public class Engine {
     }
 
 
+    public void playGame(Game game) { game.play();}
+
+
 }
