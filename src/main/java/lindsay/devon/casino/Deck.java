@@ -1,5 +1,6 @@
 package lindsay.devon.casino;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
@@ -7,10 +8,10 @@ import java.util.HashSet;
  */
 public class Deck {
 
-     public static HashSet<Card> deckList;
+     public static ArrayList<Card> deckList;
 
      public Deck() {
-       this.deckList  = new HashSet<Card>();
+       this.deckList  = new ArrayList<Card>();
        createNewDeck();
      }
 
@@ -27,48 +28,9 @@ public class Deck {
             deckList.add(diamond);
         }
     }
+
+    void shuffleDeck() {
+
+    }
 }
 
-class Card {
-    int id;
-    public enum Suit {HEARTS, CLUBS, SPADES, DIAMONDS}
-    Suit suit;
-    int value;
-    String name;
-
-    Card(int id, Suit suit) {
-        this.id = id;
-        this.suit = suit;
-        this.value = setValue(id);
-        this.name = setName(id);
-    }
-
-    int setValue(int id) {
-       for (int i = id; i <14; i++) {
-            if (i == 1) {
-                this.value = 11;
-            } else if (i > 10) {
-                this.value = 10;
-            } else {
-                this.value = i;
-            }
-        }
-        return this.value;
-    }
-
-    String setName(int id) {
-        for (int i = id; i < 14; i++) {
-            if (i == 1) {
-                this.name = "Ace of " + this.suit;
-            } else if(i == 11) {
-                this.name = "Jack of "  + this.suit;
-            } else if(i == 12) {
-                this.name = "Queen of " + this.suit;
-            } else if(i == 13) {
-                this.name = "King of " + this.suit;
-            } else { this.name = i + " " + this.suit;}
-        }
-        return this.name;
-    }
-
-}

@@ -6,8 +6,9 @@ import java.util.ArrayList;
  * Created by devon on 10/2/16.
  */
 public class PlayerManager {
-    ArrayList<Player> players = new ArrayList<Player>();
+    public static ArrayList<Player> players = new ArrayList<Player>();
     private int playerIDCounter = 1;
+
 
     Player createPlayer(String firstName, String lastName, String pin) {
         Player player = new Player(playerIDCounter, firstName, lastName, pin);
@@ -18,7 +19,7 @@ public class PlayerManager {
 
     Player getPlayerByPIN(int playerID, String pin) {
         for(Player player: players) {
-            if(player.pin.equals(pin) && player.playerID == playerID) {
+            if(player.getPin().equals(pin) && player.getID() == playerID)  {
                 return player;
             }
         }
@@ -29,8 +30,15 @@ public class PlayerManager {
         players.add(player);
     }
 
-    int getPlayerID(Player newPlayer) {
-        return newPlayer.playerID;
+    int getPlayerID(Player newPlayer) { return newPlayer.getID(); }
 
+    double getPlayerBalance(Player currentPlayer) {
+        return currentPlayer.getBalance();
     }
+
+    void setPlayerBalance(Player currentPlayer, double moneyAmount) {
+        currentPlayer.setBalance(moneyAmount);
+    }
+
+
 }

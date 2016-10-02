@@ -21,8 +21,16 @@ public class Engine {
         return playerManager.getPlayerID(newPlayer);
     }
 
+    public double getBalance(Player currentPlayer) { return playerManager.getPlayerBalance(currentPlayer);}
 
-    public void playGame(Game game) { game.play();}
+    public void setInitialPlayerBalance(Player currentPlayer, double Balance) { playerManager.setPlayerBalance(currentPlayer,Balance);}
 
+    public void playGame(Game game) { game.play(); }
+
+    public Roulette createRoulette(Player player) { return new Roulette(player);}
+    public BlackJack createBlackJack(Player player) { return new BlackJack(player);}
+    public GoFish createGoFish(Player player) { return new GoFish(player);}
+
+    public void placePlayerBet(double bet, Game game) {game.placeBet(bet);}
 
 }

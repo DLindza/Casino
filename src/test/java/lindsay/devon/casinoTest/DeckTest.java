@@ -16,4 +16,6 @@ public class DeckTest {
         int actual = Deck.deckList.size();
         Assert.assertEquals("A deck should have 52 cards", expected,actual);
     }
+
+
 }

@@ -36,25 +36,64 @@ public class Menu {
     }
 
 
-    public void accountsMainMenu() {
-        // select Account to make a transaction on
-        // current account
-        // validate current account is open
-        output("What would you like to do today?"); // userPromptInt
-        output(" [1] Make a deposit");
-        //userprompt transactionAmt
-        // deposit - ENGINE
-        // print balance - ENGINE
-        output(" [2] Make a withdrawal");
-        //userprompt transactionAmt
-        // withdraw - ENGINE
-        // print balance - ENGINE
-        output(" [3] Transfer funds");
-        //userprompt transactionAmt
-        // deposit - ENGINE
-        // print balance - ENGINE
-        output(" [4] Check my balance"); // print balance - ENGINE
-        output(" [5] Get transaction history"); // print transactions - ENGINE
-        output(" [6] Exit"); // return to Welcome Menu
+    public void rouletteMenu() {
+        output("XXXXXXXXXXXXXXXXXXXXXXXXXX");
+        output("Welcome to Roulette");
+        output("XXXXXXXXXXXXXXXXXXXXXXXXXX");
+        output(""); // userPromptInt
+        output(" [1] Rules"); // rouletteRules
+        output(" [2] Play a game!"); //play Roulette
+        output(" [3] Exit"); // break out to return to Game Menu
+    }
+
+    public void rouletteRules() {
+        output("Welcome to Roulette!");
+        output("under construction");
+        output("");
+        output("BETTING:");
+        output("under construction");
+
+    }
+
+    public void goFishMenu() {
+        output("XXXXXXXXXXXXXXXXXXXXXXXXXX");
+        output("Welcome to Go Fish!");
+        output("XXXXXXXXXXXXXXXXXXXXXXXXXX");
+        output(""); // userPromptInt
+        output(" [1] Rules"); // rouletteRules
+        output(" [2] Play a game!"); //play Roulette
+        output(" [3] Exit"); // break out to return to Game Menu
+    }
+
+
+    public void goFishRules() {
+        output("Welcome to Go Fish!");
+        output("Rules: You will be dealt 5 cards and the House will be dealt 5 cards");
+        output("The cards will be of values 9 through King");
+        output("You will take turns guessing if a card is currently in the other player's hand.");
+        output("A match is a card of equal value and the same color");
+        output("");
+        output("BETTING:");
+        output("You will place an initial bet");
+        output("For every match that you get more than the computer you will get your bet back");
+        output("plus your bet amount times the number of pairs.");
+
+    }
+    public void blackJackMenu() {
+        output("XXXXXXXXXXXXXXXXXXXXXXXXXX");
+        output("Welcome to BlackJack");
+        output("XXXXXXXXXXXXXXXXXXXXXXXXXX");
+        output(""); // userPromptInt
+        output(" [1] Rules"); // rouletteRules
+        output(" [2] Play a game!"); //play Roulette
+        output(" [3] Exit"); // break out to return to Game Menu
+    }
+
+    public void blackJackRules() {
+        output("Welcome to Black Jack!");
+        output("under construction");
+        output("");
+        output("BETTING:");
+        output("under construction");
     }
 }

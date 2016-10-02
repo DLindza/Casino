@@ -14,14 +14,14 @@ public class Player {
     double balance = 0;
     HashSet<Deck> hand;
 
-    Player(int playerID, String firstName, String lastName, String pin) {
+    public Player(int playerID, String firstName, String lastName, String pin) {
         this.playerID = playerID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.pin =  pin;
     }
 
-    public int getPlayerID() {
+    public int getID() {
         return this.playerID;
     }
 
@@ -34,6 +34,9 @@ public class Player {
     public void setBalance(double balance) {
         this.balance = balance;
     }
+
+    public void addBalance(double pot) {this.balance += pot;}
+    public void subtractBalance(double pot) {this.balance -= pot; }
 
     public HashSet<Deck> getHand() { return this.hand;}
 

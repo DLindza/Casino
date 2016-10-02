@@ -3,9 +3,15 @@ package lindsay.devon.casino;
 /**
  * Created by devon on 10/2/16.
  */
-public interface Game {
+public abstract class Game {
+    public enum State {WIN, LOSS, TIE, PLAYING}
+    House house;
 
-    void play();
-    void setGameState();
-    void updatePlayerBalance();
+    Double currentBet;
+    Double pot;
+
+   public abstract void play();
+   public abstract void setGameState();
+   public abstract void updatePlayerBalance();
+   public abstract void placeBet(double currentBet);
 }
