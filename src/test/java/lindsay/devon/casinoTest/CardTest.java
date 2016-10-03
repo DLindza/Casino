@@ -10,10 +10,10 @@ import org.junit.Test;
 public class CardTest {
     @Test
     public void setValueTest() {
-        Card card = new Card(1, Card.Suit.CLUBS);
-        int expected = 11;
+        Card card = new Card(2, Card.Suit.CLUBS);
+        int expected = 2;
         int actual = card.value;
-        Assert.assertEquals("Ace should equal 11", expected, actual);
+        Assert.assertEquals("2 should equal 2", expected, actual);
     }
 
     @Test

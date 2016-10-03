@@ -38,11 +38,16 @@ public class Casino {
                     Player newPlayer = engine.createNewPlayer(userFirstName,userLastName,userPassword);
                     engine.setInitialPlayerBalance(newPlayer,currentBalance);
                     menu.output("Your player ID is: " + engine.getPlayerID(newPlayer));
+                    gameMenuSelection();
                     break;
                 case 2:
                     gameMenuSelection();
                     break;
                 case 3:
+                    double cashOutValue = engine.getBalance(currentPlayer);
+                    menu.output("Your current balance is " + cashOutValue);
+                    menu.output("Please see the cashier to settle your account.");
+                    menu.output("Goodbye! Hope you had fun!");
                     menu.output("Thank you for playing at the Devon Casino!");
                     break;
             }
@@ -70,9 +75,6 @@ public class Casino {
                 blackJackMenuSelection();
                 break;
             case 4:
-                double cashOutValue = engine.getBalance(currentPlayer);
-                menu.output("Your current balance is " + cashOutValue);
-                menu.output("Please see the cashier to settle your account.");
                 menu.output("Goodbye! Hope you had fun!");
                 break;
         }
@@ -81,56 +83,71 @@ public class Casino {
 
 
     public void rouletteMenuSelction() {
-        menu.rouletteMenu();
-        int userSelection = userInput.inputInt();
-        switch(userSelection) {
-            case 1: menu.rouletteRules();
-                break;
-            case 2:
-                menu.output("Place your bet: ");
-                double bet = userInput.inputDouble();
-                Game game = engine.createRoulette(currentPlayer);
-                engine.placePlayerBet(bet,game);
-                engine.playGame(game);
-                break;
-            case 3: menu.output("Thank you for playing Go Fish!");
-        }
+       while(true) {
+           menu.rouletteMenu();
+           int userSelection = userInput.inputInt();
+           switch (userSelection) {
+               case 1:
+                   menu.rouletteRules();
+                   break;
+               case 2:
+                   menu.output("Place your bet: ");
+                   double bet = userInput.inputDouble();
+                   Game game = engine.createRoulette(currentPlayer);
+                   engine.placePlayerBet(bet, game);
+                   engine.playGame(game);
+                   break;
+               case 3:
+                   menu.output("Thank you for playing Go Fish!");
+           }
+           if (userSelection == 3) {break;}
+       }
 
     }
 
     public void goFishMenuSelection() {
-            menu.goFishMenu();
-            int userSelection = userInput.inputInt();
-            switch(userSelection) {
-                case 1: menu.goFishRules();
-                    break;
-                case 2:
-                    menu.output("Place your bet: ");
-                    double bet = userInput.inputDouble();
-                    Game game = engine.createGoFish(currentPlayer);
-                    engine.placePlayerBet(bet,game);
-                    engine.playGame(game);
-                    break;
-                case 3: menu.output("Thank you for playing Go Fish!");
+            while(true) {
+                menu.goFishMenu();
+                int userSelection = userInput.inputInt();
+                switch (userSelection) {
+                    case 1:
+                        menu.goFishRules();
+                        break;
+                    case 2:
+                        menu.output("Place your bet: ");
+                        double bet = userInput.inputDouble();
+                        Game game = engine.createGoFish(currentPlayer);
+                        engine.placePlayerBet(bet, game);
+                        engine.playGame(game);
+                        break;
+                    case 3:
+                        menu.output("Thank you for playing Go Fish!");
+                }
+                if (userSelection == 3) { break;}
             }
 
         }
 
     public void blackJackMenuSelection() {
-          menu.blackJackMenu();
-        int userSelection = userInput.inputInt();
-        switch(userSelection) {
-            case 1: menu.blackJackRules();
-                break;
-            case 2: menu.output("Place your bet: ");
-                double bet = userInput.inputDouble();
-                Game game = engine.createBlackJack(currentPlayer);
-                engine.placePlayerBet(bet,game);
-                engine.playGame(game);
-                break;
-            case 3: menu.output("Thank you for playing Go Fish!");
+        while (true) {
+            menu.blackJackMenu();
+            int userSelection = userInput.inputInt();
+            switch (userSelection) {
+                case 1:
+                    menu.blackJackRules();
+                    break;
+                case 2:
+                    menu.output("Place your bet: ");
+                    double bet = userInput.inputDouble();
+                    Game game = engine.createBlackJack(currentPlayer);
+                    engine.placePlayerBet(bet, game);
+                    engine.playGame(game);
+                    break;
+                case 3:
+                    menu.output("Thank you for playing Go Fish!");
+            }
+            if(userSelection == 3) {break;}
         }
-
     }
 
 

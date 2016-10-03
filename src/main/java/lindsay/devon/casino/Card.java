@@ -21,19 +21,21 @@ public class Card {
     }
 
     int setValue(int id) {
-       for (int i = id; i <14; i++) {
-            if (i == 1) {
+
+            if (id == 1) {
                 this.value = 11;
-                break;
-            } else if (i > 10) {
+
+            } else if (id > 10) {
                 this.value = 10;
-                break;
+
             } else {
-                this.value = i;
+                this.value = id;
             }
-        }
+
         return this.value;
     }
+
+    public int getValue() {return  this.value;}
 
     String setName(int id) {
         for (int i = id; i < 14; i++) {
@@ -49,8 +51,12 @@ public class Card {
             } else if(i == 13) {
                 this.name = "King of " + this.suit;
                 break;
-            } else { this.name = i + " " + this.suit;}
+            } else { this.name = i + " of " + this.suit;}
         }
+        return this.name;
+    }
+
+    String getName() {
         return this.name;
     }
 
@@ -60,5 +66,11 @@ public class Card {
         }
         return this.color = Color.RED;
     }
+
+    Color getColor() {
+        return this.color;
+    }
+
+
 
 }

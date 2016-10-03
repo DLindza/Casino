@@ -1,61 +1,87 @@
 package lindsay.devon.casino;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Random;
 
 /**
  * Created by devon on 10/2/16.
  */
 public class GoFish extends Game {
-    int playerMatches = 0;
-    int houseMatches = 0;
+    UserInput userInput = new UserInput();
+    Menu menu  = new Menu();
+    public int playerMatches = 0;
+    public int houseMatches = 0;
     int round = 1;
     Deck deck;
     Player currentPlayer;
     public State state;
 
-    ArrayList<Card> goFishDeck;
-    ArrayList<Card> playerHand;
-    ArrayList<Card> houseHand;
+
+    public static ArrayList<Card> goFishDeck = new ArrayList<Card>();
+    public ArrayList<Card> playerHand = new ArrayList<Card>();
+    public ArrayList<Card> houseHand = new ArrayList<Card>();
 
     public GoFish(Player player) {
         this.currentPlayer = player;
         this.state = State.PLAYING;
-        //deck = new Deck();
-       // subDeck();
-        play();
+        deck = new Deck();
+        subDeck();
     }
 
 
     public void play() {
         while(round < 5) {
-            //deal player hand - 5 cards int ID < 9
-            //deal house hand - 5 cards int ID < 9
-            //player make guess .contains
-            // if correct cards get removed from hand; playerMatches ++;
-            //house make guess .contains
-            // if correct cards get removed from hand; houseMatches ++;
+            deal();
+            Card playerGuessCard = deck.getCardByName(playerGuess());
+            if(houseHand.contains(playerGuessCard)) {
+                a
+            }
+
         }
-        setGameState();
+//            //player make guess .contains
+//            // if correct cards get removed from hand; playerMatches ++;
+//            //house make guess .contains
+//            // if correct cards get removed from hand; houseMatches ++;
+//        }
+//        setGameState();
 
     }
 
 
     public void subDeck() {
-        for(int i = 0; i < Deck.deckList.size(); i++) {
-            if (Deck.deckList.get(i).value > 9){
-                goFishDeck.add(Deck.deckList.get(i));
+        for(int i = 0; i < deck.deckList.size(); i++) {
+            if(deck.deckList.get(i).getValue() > 9){
+                Card card = deck.deckList.get(i);
+                goFishDeck.add(card);
             }
         }
-
-
     }
 
     public void deal() {
+        Random random = new Random();
 
+        for(int i = 0; i < 7 ; i++) {
+            int num = random.nextInt(20);
+            Card card = goFishDeck.get(num);
+            playerHand.add(card);
+            int num2 = random.nextInt(20);
+            Card card2 = goFishDeck.get(num2);
+            houseHand.add(card2);
+        }
+    }
+
+    public String playerGuess() {
+        menu.output("Please enter your guess: Card Name and Suit (i.e. 'Jack of Clubs')");
+        String playerGuess = userInput.inputString();
+        return playerGuess;
 
     }
-    public void guess() {}
+
+    public void houseGuess() {
+        Random random = new Random();
+        int num = random.nextInt(20);
+        String houseGuess = goFishDeck.get(num).getName();
+    }
 
 
     public void setGameState() {
@@ -69,7 +95,7 @@ public class GoFish extends Game {
             this.state = State.WIN;
             System.out.println("WINNER! WIN! YOU WON! GO YOU! WAHOOO!");
         }
-        updatePlayerBalance();
+        //updatePlayerBalance();
     }
 
     public void updatePlayerBalance() {

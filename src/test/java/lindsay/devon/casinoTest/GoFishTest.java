@@ -9,26 +9,38 @@ import org.junit.Test;
 /**
  * Created by devon on 10/2/16.
  */
-public class GoFishTest extends Game {
+public class GoFishTest{
 
     @Test
-    public void setGameState() {
+    public void subDeckTest() {
+        Player player = new Player(1,"Dev", "Linds", "pizza");
+        GoFish goFish = new GoFish(player);
+        goFish.subDeck();
+        int expected = 20;
+        int actual = GoFish.goFishDeck.size();
+        Assert.assertEquals(expected,actual);
+    }
+
+    @Test
+    public void setGameStateTest() {
         Player player = new Player(1, "Name", "lastName", "pin");
         GoFish goFish = new GoFish(player);
-        int houseMatches = 7;
-        int playerMatches = 3;
+        goFish.playerMatches = 3;
+        goFish.houseMatches = 7;
         goFish.setGameState();
-        State expected = State.LOSS;
-        State actual = goFish.state;
+        String expected = "LOSS";
+        String actual = goFish.state.toString();
         Assert.assertEquals("Game should have been lost",expected,actual);
-
-        // not working because it's asking for user input to place bet...
-
 
     }
 
-
-    public  void play() {}
-    public  void updatePlayerBalance(){}
-    public  void placeBet(double currentBet) {}
+    @Test
+    public void dealTest() {
+        Player player = new Player(1, "Name", "lastName", "pin");
+        GoFish goFish = new GoFish(player);
+        goFish.deal();
+        int expected = 7;
+        int actual = goFish.playerHand.size();
+        Assert.assertEquals("Player hand should be 6",expected,actual);
+    }
 }

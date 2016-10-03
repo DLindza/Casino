@@ -8,7 +8,7 @@ import java.util.HashSet;
  */
 public class Deck {
 
-     public static ArrayList<Card> deckList;
+     public ArrayList<Card> deckList;
 
      public Deck() {
        this.deckList  = new ArrayList<Card>();
@@ -29,8 +29,13 @@ public class Deck {
         }
     }
 
-    void shuffleDeck() {
-
+    Card getCardByName(String name) {
+        for(int i = 0; i < deckList.size(); i++) {
+            if(name.equals(deckList.get(i).getName())) {
+                return deckList.get(i);
+            }
+        }
+        return null;
     }
 }
 

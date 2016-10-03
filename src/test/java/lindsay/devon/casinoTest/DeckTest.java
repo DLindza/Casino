@@ -13,7 +13,7 @@ public class DeckTest {
     public void createNewDeckTest() {
         Deck deck = new Deck();
         int expected = 52;
-        int actual = Deck.deckList.size();
+        int actual = deck.deckList.size();
         Assert.assertEquals("A deck should have 52 cards", expected,actual);
     }
 
